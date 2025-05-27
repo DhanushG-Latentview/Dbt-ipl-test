@@ -12,7 +12,7 @@ WITH new_stadiums AS (
         venue AS stadium_name,
         city AS stadium_city
     FROM
-        {{ source('cricket_ipl_db', 'ipl_match_data') }}
+       FROM {{ source('cricket_ipl_db', 'all_ipl_match_data') }}
 )
 
 -- Select clause depends on whether it's an incremental run or a full refresh.

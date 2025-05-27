@@ -14,7 +14,7 @@ with new_events as (
             COALESCE(team_type, 'NULL'), '|',
             COALESCE(balls_per_over, 0))) AS event_id,
         event_name, season, match_type, gender, overs, team_type, balls_per_over
-    FROM {{ source('cricket_ipl_db', 'ipl_match_data') }}
+    FROM {{ source('cricket_ipl_db', 'all_ipl_match_data') }}
 )
 
 select 

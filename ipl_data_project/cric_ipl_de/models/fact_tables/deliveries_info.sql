@@ -35,7 +35,7 @@ WITH match_ids AS (
         cmd.review_type,
         cmd.review_umpires_call
     FROM
-        {{ source('cricket_ipl_db', 'ipl_match_data') }} AS cmd
+        FROM {{ source('cricket_ipl_db', 'all_ipl_match_data') }} AS cmd
     LEFT JOIN {{ref('team_info')}} AS t
         ON MD5(concat(COALESCE(cmd.team, 'NULL'), '|', COALESCE(cmd.team_type, 'NULL'))) = t.team_id
     LEFT JOIN {{ref('team_info')}} AS rteam

@@ -10,13 +10,13 @@ WITH combined_teams AS (
         team_1 AS team,
         team_type
     FROM
-        {{ source('cricket_ipl_db', 'ipl_match_data') }}
+        FROM {{ source('cricket_ipl_db', 'all_ipl_match_data') }}
     UNION 
     SELECT
         team_2 AS team,
         team_type
     FROM
-        {{ source('cricket_ipl_db', 'ipl_match_data') }}
+        FROM {{ source('cricket_ipl_db', 'all_ipl_match_data') }}
 )
 
 , distinct_teams AS (

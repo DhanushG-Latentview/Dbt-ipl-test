@@ -20,8 +20,7 @@ WITH match_results_data AS (
         cmd.by_runs,
         cmd.method,
         cmd.player_of_match_id as player_of_match
-    FROM
-        {{ source('cricket_ipl_db', 'ipl_match_data') }} AS cmd
+    FROM {{ source('cricket_ipl_db', 'all_ipl_match_data') }} AS cmd
     LEFT JOIN {{ ref('event_info') }} AS ev
         ON MD5(concat(
             COALESCE(cmd.event_name, 'NULL'), '|',

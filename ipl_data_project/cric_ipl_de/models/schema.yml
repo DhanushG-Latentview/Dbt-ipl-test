@@ -1,7 +1,15 @@
 
+# version: 2
+
+# sources:
+#   - name: cricket_ipl_db
+#     tables:
+#       - name: ipl_match_data
 version: 2
 
 sources:
   - name: cricket_ipl_db
+    database: SNOWFLAKE_LEARNING_DB
+    schema: PUBLIC
     tables:
-      - name: ipl_match_data
+      - name: all_ipl_match_data

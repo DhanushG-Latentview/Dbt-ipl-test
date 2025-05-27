@@ -9,7 +9,7 @@ WITH referees AS (
         match_referees_id AS referee_id,
         match_referees AS referee_name
     FROM
-        {{ source('cricket_ipl_db', 'ipl_match_data') }}
+     {{ source('cricket_ipl_db', 'all_ipl_match_data') }}
 )
 
 SELECT

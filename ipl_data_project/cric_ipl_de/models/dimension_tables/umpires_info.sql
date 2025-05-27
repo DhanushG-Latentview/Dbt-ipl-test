@@ -6,16 +6,16 @@
 
 WITH combined_umpires AS (
     SELECT reserve_umpires_id AS umpire_id, reserve_umpires as umpire_name
-    FROM {{ source('cricket_ipl_db', 'ipl_match_data') }}
+    FROM {{ source('cricket_ipl_db', 'all_ipl_match_data') }} 
     UNION 
     SELECT tv_umpires_id as umpire_id, tv_umpires AS umpire_name
-    FROM {{ source('cricket_ipl_db', 'ipl_match_data') }}
+    FROM {{ source('cricket_ipl_db', 'all_ipl_match_data') }}
     UNION
     SELECT umpire_1_id as umpire_id, umpire_1 AS umpire
-    FROM {{ source('cricket_ipl_db', 'ipl_match_data') }}
+    FROM {{ source('cricket_ipl_db', 'all_ipl_match_data') }}
     UNION
     SELECT umpire_2_id as umpire_id, umpire_2 AS umpire
-    FROM {{ source('cricket_ipl_db', 'ipl_match_data') }}
+    FROM {{ source('cricket_ipl_db', 'all_ipl_match_data') }}
 )
 
 , distinct_umpires AS (
